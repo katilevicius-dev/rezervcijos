@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto nuoma Kaune | BMW Ford Mercedes nuoma</title>
+  <meta name="description" content="Auto nuoma Kaune. BMW, Ford ir Mercedes nuoma geromis kainomis. Greitas susisiekimas telefonu ir WhatsApp.">
+  <meta name="keywords" content="auto nuoma Kaune, automobilių nuoma Kaune, BMW nuoma Kaune, Ford nuoma Kaune, Mercedes nuoma Kaune">
+  <meta name="author" content="AutoNuoma">
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    .nav {
+      background: #111;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .top-phone {
+      font-weight: bold;
+    }
+
+    .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('bmw1.jpg') center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin: 0 0 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin: 0 0 20px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: #ffb400;
+      padding: 14px 24px;
+      font-size: 16px;
+      border-radius: 10px;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero-btn.dark {
+      background: #111;
+      color: white;
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      font-weight: bold;
+      font-size: 20px;
+      color: #ffb400;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .cars-section {
+      max-width: 1180px;
+      margin: 0 auto 40px;
+      padding: 20px;
+    }
+
+    .cars-slider-shell {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cars-viewport {
+      overflow: hidden;
+      width: 100%;
+      border-radius: 18px;
+      touch-action: pan-y;
+    }
+
+    .cars-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.45s ease;
+      will-change: transform;
+    }
+
+    .car-card {
+      min-width: calc((100% - 40px) / 3);
+      max-width: calc((100% - 40px) / 3);
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    .car-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .car-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .car-content {
+      padding: 18px;
+    }
+
+    .car-content h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .car-content p {
+      margin: 0 0 10px;
+      color: #555;
+      min-height: 44px;
+    }
+
+    .car-info {
+      margin: 12px 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 14px 0 6px;
+    }
+
+    .available {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn.secondary {
+      background: #ffb400;
+      color: #111;
+    }
+
+    .slider-arrow {
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: #111;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      flex: 0 0 auto;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .slider-arrow:hover {
+      transform: scale(1.06);
+    }
+
+    .slider-arrow:disabled {
+      opacity: 0.35;
+      cursor: default;
+      transform: none;
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border: none;
+      border-radius: 50%;
+      background: #c7c7c7;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .slider-dot.active {
+      background: #111;
+      transform: scale(1.2);
+    }
+
+    .advantages,
+    .trust-section,
+    .seo-text,
+    .faq-section,
+    .reviews-section,
+    .map-section {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 20px;
+    }
+
+    .advantages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .adv-box,
+    .trust-box,
+    .seo-box,
+    .faq-box,
+    .reviews-box,
+    .map-box {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    .adv-box {
+      text-align: center;
+    }
+
+    .adv-box h3,
+    .trust-box h2,
+    .seo-box h2,
+    .faq-box h2,
+    .reviews-box h2,
+    .map-box h2 {
+      margin-top: 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .trust-item {
+      background: #f7f7f7;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .faq-item {
+      padding: 16px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #555;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: #f7f7f7;
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .review-card p {
+      margin-top: 0;
+      color: #444;
+    }
+
+    .stars {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    .contact {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 20px;
+    }
+
+    .contact h2 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .contact-points {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-point {
+      background: rgba(255,255,255,0.08);
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0a0a0a;
+      color: #bbb;
+      text-align: center;
+      padding: 16px;
+      font-size: 14px;
+    }
+
+    .footer-seo {
+      max-width: 900px;
+      margin: 0 auto 10px;
+      line-height: 1.6;
+    }
+
+    .floating {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .main-btn {
+      background: #111;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      user-select: none;
+    }
+
+    .options {
+      display: none;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .options a {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      min-width: 190px;
+    }
+
+    .call {
+      background: #111;
+    }
+
+    .wa {
+      background: #25D366;
+    }
+
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .popup-content {
+      background: white;
+      width: 100%;
+      max-width: 980px;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .popup-close-x {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: #111;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .detail-gallery {
+      position: relative;
+      background: #f7f7f7;
+      border-radius: 16px;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .detail-main-image {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-gallery .slider-btn {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.65);
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .detail-gallery .prev {
+      left: 12px;
+    }
+
+    .detail-gallery .next {
+      right: 12px;
+    }
+
+    .detail-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 14px;
+      background: white;
+    }
+
+    .detail-thumbs img {
+      width: 100%;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 3px solid transparent;
+      display: block;
+    }
+
+    .detail-thumbs img.active {
+      border-color: #111;
+    }
+
+    .detail-info h2 {
+      margin-top: 0;
+      font-size: 32px;
+    }
+
+    .detail-price {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 10px 0 8px;
+    }
+
+    .detail-available {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .detail-desc {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .premium-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .premium-spec {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+      border: 1px solid #ececec;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    }
+
+    .spec-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 12px;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .spec-text strong {
+      display: block;
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .spec-text span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .detail-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .detail-btn {
+      display: inline-block;
+      padding: 14px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      min-width: 180px;
+    }
+
+    .detail-call {
+      background: #111;
+    }
+
+    .detail-wa {
+      background: #25D366;
+    }
+
+    .popup-mini {
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-mini .popup-content {
+      max-width: 340px;
+      text-align: center;
+      padding: 28px 22px;
+    }
+
+    .popup-mini .popup-content h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+
+    .popup-mini .popup-content p {
+      margin-top: 0;
+      margin-bottom: 18px;
+      color: #666;
+    }
+
+    .popup-btn {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 13px 16px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .close-btn {
+      width: 100%;
+      padding: 12px 16px;
+      border: none;
+      background: #e8e8e8;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 980px) {
+      .car-card {
+        min-width: calc((100% - 20px) / 2);
+        max-width: calc((100% - 20px) / 2);
+      }
+
+      .detail-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        padding: 15px 18px;
+      }
+
+      .menu {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .top-phone {
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cars-slider-shell {
+        gap: 8px;
+      }
+
+      .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+      }
+
+      .car-card {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .car-card img {
+        height: 210px;
+      }
+
+      .car-content h3 {
+        font-size: 22px;
+      }
+
+      .detail-main-image {
+        height: 240px;
+      }
+
+      .detail-thumbs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .premium-specs {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="logo">
+      <img src="logo.png" alt="AutoNuoma logo">
+    </div>
+
+    <div class="top-phone">📞 +370 607 56738</div>
+
+    <div class="menu">
+      <a href="#cars">Automobiliai</a>
+      <a href="#contact">Kontaktai</a>
+    </div>
+  </div>
+
+  <header>
+    <h1>Patikima automobilių nuoma Kaune</h1>
+    <p>BMW, Ford ir Mercedes nuoma Kaune už gerą kainą</p>
+
+    <div class="hero-buttons">
+      <a class="hero-btn" href="#cars">Žiūrėti automobilius</a>
+      <a class="hero-btn dark" href="tel:+37060756738">📞 Skambinti dabar</a>
+    </div>
+
+    <div class="hero-note">🚗 Laisvi automobiliai šiandien – skambink dabar</div>
+  </header>
+
+  <h2 class="section-title" id="cars">Mūsų automobiliai</h2>
+  <p class="section-subtitle">Paspausk ant automobilio ir atsidarys pilnas aprašymas</p>
+
+  <section class="cars-section">
+    <div class="cars-slider-shell">
+      <button class="slider-arrow left" onclick="moveSlider(-1)" aria-label="Ankstesnis">‹</button>
+
+      <div class="cars-viewport" id="carsViewport">
+        <div class="cars-track" id="carsList"></div>
+      </div>
+
+      <button class="slider-arrow right" onclick="moveSlider(1)" aria-label="Kitas">›</button>
+    </div>
+
+    <div class="slider-dots" id="sliderDots"></div>
+  </section>
+
+  <section class="advantages">
+    <div class="adv-box">
+      <h3>Greitas susisiekimas</h3>
+      <p>Skambinkite arba rašykite per WhatsApp.</p>
+    </div>
+    <div class="adv-box">
+      <h3>Geros kainos</h3>
+      <p>Konkurencingi pasiūlymai klientams.</p>
+    </div>
+    <div class="adv-box">
+      <h3>Tvarkingi automobiliai</h3>
+      <p>Prižiūrėti ir kelionei paruošti auto.</p>
+    </div>
+    <div class="adv-box">
+      <h3>Pagalba klientui</h3>
+      <p>Padėsime išsirinkti geriausią variantą.</p>
+    </div>
+  </section>
+
+  <section class="trust-section">
+    <div class="trust-box">
+      <h2>Kodėl renkasi mus</h2>
+      <div class="trust-grid">
+        <div class="trust-item">✔ Dirbame Kaune</div>
+        <div class="trust-item">✔ Greitas automobilio atsiėmimas</div>
+        <div class="trust-item">✔ Galima nuoma trumpam ir ilgam laikui</div>
+        <div class="trust-item">✔ Visi automobiliai apdrausti</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-text">
+    <div class="seo-box">
+      <h2>Automobilių nuoma Kaune</h2>
+      <p>
+        Siūlome patikimą automobilių nuomą Kaune. Nuomai galite rinktis BMW, Ford ir Mercedes
+        automobilius pagal savo poreikius. Mūsų auto nuoma Kaune tinka tiek trumpam laikui,
+        tiek ilgesnėms kelionėms.
+      </p>
+      <p>
+        Jeigu domina BMW nuoma Kaune, Ford nuoma Kaune ar Mercedes nuoma Kaune, susisiekite
+        telefonu arba per WhatsApp. Padėsime greitai išsirinkti tinkamą variantą.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-box">
+      <h2>Dažniausiai užduodami klausimai</h2>
+
+      <div class="faq-item">
+        <h3>Koks minimalus nuomos laikotarpis?</h3>
+        <p>Minimalus nuomos laikotarpis dažniausiai yra nuo 1 paros.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Ar reikalingas depozitas?</h3>
+        <p>Taip, kai kuriems automobiliams gali būti taikomas užstatas. Tiksli informacija pateikiama susisiekus.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Ar galima nuoma savaitgaliui?</h3>
+        <p>Taip, automobilį galima nuomotis tiek savaitgaliui, tiek ilgesniam laikui.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Ar automobiliai yra apdrausti?</h3>
+        <p>Taip, visi nuomojami automobiliai yra tvarkingi ir apdrausti.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Ar išrašote sąskaitas?</h3>
+        <p>Taip, esant poreikiui galime išrašyti sąskaitą.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+    <div class="reviews-box">
+      <h2>Klientų atsiliepimai</h2>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Greitai susitarėm, automobilis labai tvarkingas. Tikrai rekomenduoju!"</p>
+          <strong>– Tomas, Kaunas</strong>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Viskas sklandžiai, gera kaina ir patikimas auto. Dar kartą rinkčiausi."</p>
+          <strong>– Mantas, Kaunas</strong>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p>"Patogu, greita ir aišku. Tikrai gera auto nuoma Kaune."</p>
+          <strong>– Karolis, Kaunas</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="map-box">
+      <h2>Mus rasite Kaune</h2>
+      <iframe
+        class="map-frame"
+        src="https://www.google.com/maps?q=Kaunas&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Kontaktai</h2>
+    <p>Telefonas: +370 607 56738</p>
+    <p>El. paštas: info@autonuoma.lt</p>
+    <p>Kaunas, Lietuva</p>
+
+    <div class="contact-points">
+      <div class="contact-point">✔ Dirbame Kaune</div>
+      <div class="contact-point">✔ Greitas automobilio atsiėmimas</div>
+      <div class="contact-point">✔ Trumpalaikė ir ilgalaikė nuoma</div>
+      <div class="contact-point">✔ Visi automobiliai apdrausti</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-seo">
+      Auto nuoma Kaune – BMW, Ford, Mercedes automobilių nuoma.
+      Patikima automobilių nuoma Kaune už gerą kainą.
+    </div>
+    © 2026 AutoNuoma. Visos teisės saugomos.
+  </footer>
+
+  <div class="floating">
+    <div class="options" id="options">
+      <a href="tel:+37060756738" class="call">📞 Skambinti</a>
+      <a href="https://wa.me/37060756738?text=Sveiki%2C%20noriu%20nuomotis%20automobil%C4%AF%20Kaune.%20Kokia%20kaina%20ir%20s%C4%85lygos%3F" target="_blank" class="wa">💬 WhatsApp</a>
+    </div>
+    <div class="main-btn" onclick="toggleMenu()">💬</div>
+  </div>
+
+  <div id="contactPopup" class="popup popup-mini">
+    <div class="popup-content">
+      <h3>Susisiekti</h3>
+      <p id="popupText">Pasirinkite būdą</p>
+
+      <a id="callLink" href="tel:+37060756738" class="popup-btn call">📞 Skambinti</a>
+      <a id="waLink" href="https://wa.me/37060756738?text=Sveiki%2C%20noriu%20nuomotis%20automobil%C4%AF%20Kaune.%20Kokia%20kaina%20ir%20s%C4%85lygos%3F" target="_blank" class="popup-btn wa">💬 WhatsApp</a>
+
+      <button class="close-btn" onclick="closeContactPopup()">Uždaryti</button>
+    </div>
+  </div>
+
+  <div id="detailPopup" class="popup">
+    <div class="popup-content">
+      <button class="popup-close-x" onclick="closeDetailPopup()">✕</button>
+
+      <div class="detail-layout">
+        <div class="detail-gallery" id="detailGallery">
+          <button class="slider-btn prev" type="button" onclick="changeDetailSlide(-1)">‹</button>
+          <img id="detailMainImage" class="detail-main-image" src="" alt="">
+          <button class="slider-btn next" type="button" onclick="changeDetailSlide(1)">›</button>
+          <div id="detailThumbs" class="detail-thumbs"></div>
+        </div>
+
+        <div class="detail-info">
+          <h2 id="detailName"></h2>
+          <div id="detailPrice" class="detail-price"></div>
+          <div id="detailAvailable" class="detail-available"></div>
+          <p id="detailDescription" class="detail-desc"></p>
+
+          <div class="premium-specs">
+            <div class="premium-spec">
+              <div class="spec-icon">📅</div>
+              <div class="spec-text">
+                <strong>Metai</strong>
+                <span id="specYear"></span>
+              </div>
+            </div>
+
+            <div class="premium-spec">
+              <div class="spec-icon">⚙️</div>
+              <div class="spec-text">
+                <strong>Variklis</strong>
+                <span id="specEngine"></span>
+              </div>
+            </div>
+
+            <div class="premium-spec">
+              <div class="spec-icon">⛽</div>
+              <div class="spec-text">
+                <strong>Kuras</strong>
+                <span id="specFuel"></span>
+              </div>
+            </div>
+
+            <div class="premium-spec">
+              <div class="spec-icon">🔁</div>
+              <div class="spec-text">
+                <strong>Pavarų dėžė</strong>
+                <span id="specGearbox"></span>
+              </div>
+            </div>
+
+            <div class="premium-spec">
+              <div class="spec-icon">🚘</div>
+              <div class="spec-text">
+                <strong>Kėbulas</strong>
+                <span id="specBody"></span>
+              </div>
+            </div>
+
+            <div class="premium-spec">
+              <div class="spec-icon">👥</div>
+              <div class="spec-text">
+                <strong>Vietos</strong>
+                <span id="specSeats"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-actions">
+            <a id="detailCall" href="tel:+37060756738" class="detail-btn detail-call">📞 Skambinti</a>
+            <a id="detailWa" href="#" target="_blank" class="detail-btn detail-wa">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cars = [
+      {
+        name: "Ford Focus",
+        price: "25 €/d.",
+        available: true,
+        image: "ford1.jpg",
+        gallery: ["ford1.jpg", "ford2.jpg", "ford3.jpg", "ford4.jpg"],
+        description: "Ekonomiškas ir patikimas pasirinkimas kasdienai bei ilgesnėms kelionėms.",
+        info: "Benzinas • Mechaninė • Universalas",
+        year: "2009",
+        engine: "1.6",
+        fuel: "Benzinas",
+        gearbox: "Mechaninė",
+        body: "Universalas",
+        seats: "5"
+      },
+      {
+        name: "Mercedes A160",
+        price: "35 €/d.",
+        available: true,
+        image: "mercedes1.jpg",
+        gallery: ["mercedes1.jpg", "mercedes2.jpg", "mercedes3.jpg", "mercedes4.jpg"],
+        description: "Patogus miesto automobilis su automatine pavarų dėže ir ekonomišku benzininiu varikliu.",
+        info: "Benzinas • Automatas • 5 vietos",
+        year: "1999",
+        engine: "1.6",
+        fuel: "Benzinas",
+        gearbox: "Automatinė",
+        body: "Hečbekas",
+        seats: "5"
+      },
+      {
+        name: "BMW 520",
+        price: "50 €/d.",
+        available: true,
+        image: "bmw1.jpg",
+        gallery: ["bmw1.jpg", "bmw2.jpg", "bmw3.jpg", "bmw4.jpg"],
+        description: "Komfortiškas ir erdvus universalas, puikiai tinkantis ilgesnėms kelionėms.",
+        info: "Dyzelis • Automatas • Universalas",
+        year: "2013",
+        engine: "2.0",
+        fuel: "Dyzelis",
+        gearbox: "Automatinė",
+        body: "Universalas",
+        seats: "5"
+      },
+      {
+        name: "Opel astra",
+        price: "25 €/d.",
+        available: true,
+        image: "opel1.jpg",
+        gallery: ["opel1.jpg"],
+        description: "Komfortiškas, puikiai mieste ir tinkantis ilgesnėms kelionėms.",
+        info: "benzinas • Mechaninė • Hečbekas",
+        year: "2010",
+        engine: "1,4",
+        fuel: "Benzinas",
+        gearbox: "Mechaninė",
+        body: "Hečbekas",
+        seats: "5"
+      }
+    ];
+
+    let currentSlide = 0;
+    let cardsPerView = 3;
+    let maxSlide = 0;
+    let currentDetailGallery = [];
+    let currentDetailIndex = 0;
+
+    function getCardsPerView() {
+      if (window.innerWidth <= 640) return 1;
+      if (window.innerWidth <= 980) return 2;
+      return 3;
+    }
+
+    function renderCars() {
+      const carsList = document.getElementById("carsList");
+      carsList.innerHTML = cars.map((car, index) => `
+        <div class="car-card" onclick="openDetailPopup(${index})">
+          <img src="${car.image}" alt="${car.name}">
+          <div class="car-content">
+            <h3>${car.name}</h3>
+            <p>${car.description}</p>
+            <div class="car-info">${car.info}</div>
+            <div class="price">${car.price}</div>
+            ${car.available ? '<div class="available">✔ Laisvas šiandien</div>' : '<div class="available" style="color:#999;">✖ Užimtas</div>'}
+            <div class="buttons">
+              <button class="btn secondary" onclick="event.stopPropagation(); openDetailPopup(${index})">Žiūrėti</button>
+              <button class="btn" onclick="event.stopPropagation(); openContactPopup('${car.name.replace(/'/g, "\\'")}')">Susisiekti</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      cardsPerView = getCardsPerView();
+      maxSlide = Math.max(0, cars.length - cardsPerView);
+      if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+      renderDots();
+      updateSlider();
+    }
+
+    function renderDots() {
+      const dotsWrap = document.getElementById("sliderDots");
+      const pages = Math.max(1, maxSlide + 1);
+
+      dotsWrap.innerHTML = "";
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement("button");
+        dot.className = "slider-dot" + (i === currentSlide ? " active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Eiti į skaidrę " + (i + 1));
+        dot.onclick = () => {
+          currentSlide = i;
+          updateSlider();
+        };
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll(".slider-dot");
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentSlide);
+      });
+    }
+
+    function updateSlider() {
+      const track = document.getElementById("carsList");
+      const cards = track.querySelectorAll(".car-card");
+      if (!cards.length) return;
+
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 20;
+      const offset = currentSlide * (cardWidth + gap);
+
+      track.style.transform = `translateX(-${offset}px)`;
+      updateDots();
+      updateArrows();
+    }
+
+    function updateArrows() {
+      const left = document.querySelector(".slider-arrow.left");
+      const right = document.querySelector(".slider-arrow.right");
+      if (!left || !right) return;
+
+      left.disabled = currentSlide <= 0;
+      right.disabled = currentSlide >= maxSlide;
+    }
+
+    function moveSlider(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = 0;
+      if (currentSlide > maxSlide) currentSlide = maxSlide;
+      updateSlider();
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("options");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    function openContactPopup(carName) {
+      const popup = document.getElementById("contactPopup");
+      const popupText = document.getElementById("popupText");
+      const waLink = document.getElementById("waLink");
+
+      popupText.textContent = "Pasirinkite kaip susisiekti dėl: " + carName;
+      const message = "Sveiki, domina " + carName + " nuoma Kaune. Kokia kaina ir sąlygos?";
+      waLink.href = "https://wa.me/37060756738?text=" + encodeURIComponent(message);
+
+      popup.style.display = "flex";
+    }
+
+    function closeContactPopup() {
+      document.getElementById("contactPopup").style.display = "none";
+    }
+
+    function openDetailPopup(index) {
+      const car = cars[index];
+      currentDetailGallery = car.gallery && car.gallery.length ? car.gallery : [car.image];
+      currentDetailIndex = 0;
+
+      document.getElementById("detailName").textContent = car.name;
+      document.getElementById("detailPrice").textContent = car.price;
+      document.getElementById("detailAvailable").textContent = car.available ? "✔ Laisvas šiandien" : "✖ Užimtas";
+      document.getElementById("detailAvailable").style.color = car.available ? "green" : "#999";
+      document.getElementById("detailDescription").textContent = car.description;
+
+      document.getElementById("specYear").textContent = car.year || "-";
+      document.getElementById("specEngine").textContent = car.engine || "-";
+      document.getElementById("specFuel").textContent = car.fuel || "-";
+      document.getElementById("specGearbox").textContent = car.gearbox || "-";
+      document.getElementById("specBody").textContent = car.body || "-";
+      document.getElementById("specSeats").textContent = car.seats || "-";
+
+      const msg = "Sveiki, domina " + car.name + " nuoma Kaune. Kokia kaina ir sąlygos?";
+      document.getElementById("detailWa").href = "https://wa.me/37060756738?text=" + encodeURIComponent(msg);
+
+      renderDetailGallery();
+      document.getElementById("detailPopup").style.display = "flex";
+    }
+
+    function renderDetailGallery() {
+      const mainImage = document.getElementById("detailMainImage");
+      const thumbsWrap = document.getElementById("detailThumbs");
+
+      mainImage.src = currentDetailGallery[currentDetailIndex];
+      thumbsWrap.innerHTML = currentDetailGallery.map((img, index) => `
+        <img src="${img}" class="${index === currentDetailIndex ? 'active' : ''}" onclick="setDetailImage(${index})" alt="">
+      `).join("");
+    }
+
+    function setDetailImage(index) {
+      currentDetailIndex = index;
+      renderDetailGallery();
+    }
+
+    function changeDetailSlide(direction) {
+      if (!currentDetailGallery.length) return;
+
+      currentDetailIndex += direction;
+      if (currentDetailIndex < 0) currentDetailIndex = currentDetailGallery.length - 1;
+      if (currentDetailIndex >= currentDetailGallery.length) currentDetailIndex = 0;
+
+      renderDetailGallery();
+    }
+
+    function closeDetailPopup() {
+      document.getElementById("detailPopup").style.display = "none";
+    }
+
+    function setupSwipe() {
+      const viewport = document.getElementById("carsViewport");
+
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      viewport.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        currentX = startX;
+        isDragging = true;
+      }, { passive: true });
+
+      viewport.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+      }, { passive: true });
+
+      viewport.addEventListener("touchend", () => {
+        if (!isDragging) return;
+        const diff = startX - currentX;
+        if (diff > 50) moveSlider(1);
+        if (diff < -50) moveSlider(-1);
+        isDragging = false;
+      });
+    }
+
+    function setupDetailSwipe() {
+      const detailGallery = document.getElementById("detailGallery");
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      let touchDragging = false;
+
+      detailGallery.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchEndX = touchStartX;
+        touchDragging = true;
+      }, { passive: true });
+
+      detailGallery.addEventListener("touchmove", (e) => {
+        if (!touchDragging) return;
+        touchEndX = e.touches[0].clientX;
+      }, { passive: true });
+
+      detailGallery.addEventListener("touchend", () => {
+        if (!touchDragging) return;
+        const diff = touchStartX - touchEndX;
+        if (diff > 50) changeDetailSlide(1);
+        if (diff < -50) changeDetailSlide(-1);
+        touchDragging = false;
+      });
+    }
+
+    window.addEventListener("click", function(event) {
+      const contactPopup = document.getElementById("contactPopup");
+      const detailPopup = document.getElementById("detailPopup");
+
+      if (event.target === contactPopup) closeContactPopup();
+      if (event.target === detailPopup) closeDetailPopup();
+    });
+
+    window.addEventListener("resize", () => {
+      cardsPerView = getCardsPerView();
+      maxSlide = Math.max(0, cars.length - cardsPerView);
+      if (currentSlide > maxSlide) currentSlide = maxSlide;
+      renderDots();
+      updateSlider();
+    });
+
+    renderCars();
+    setupSwipe();
+    setupDetailSwipe();
+  </script>
+
+</body>
+</html>
